@@ -1,0 +1,20 @@
+# copier en config.toml et adapter les chemins
+# les chemins relatifs sont relatifs a ce fichier
+
+[sources]
+obsidian = "~/Documents/Obsidian/Perso"
+messages = "data/whatsapp"   # exports "Discussion WhatsApp avec X.txt"
+emails = "data/mails"        # fichiers .mbox (Google Takeout)
+photos = "~/Pictures"
+
+[models]
+chat = "llama3.1"
+embeddings = "nomic-embed-text"
+vision = "llava"             # mettre "" pour ne pas decrire les photos
+base_url = "http://localhost:11434"
+
+[index]
+db_path = "chroma"
+chunk_size = 1000
+chunk_overlap = 150
+top_k = 6
