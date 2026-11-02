@@ -1,0 +1,27 @@
+[project]
+name = "memoire"
+version = "0.1.0"
+description = "RAG perso sur mes notes Obsidian, messages, mails et photos (LangGraph + Ollama)"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "langgraph>=1.2",
+    "langchain-core>=1.7",
+    "langchain-ollama>=1.1",
+    "langchain-chroma>=1.1",
+    "langchain-text-splitters>=1.1",
+    "pillow>=11",
+]
+
+[project.scripts]
+memoire = "memoire.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+line-length = 100
