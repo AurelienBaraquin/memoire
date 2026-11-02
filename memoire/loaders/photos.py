@@ -31,10 +31,12 @@ def gps_to_decimal(values: tuple[float, float, float], ref: str) -> float:
 
 
 def read_exif(path: Path) -> dict[str, str]:
+    # get_ifd relit le fichier, il faut l'appeler avant de le fermer
     with Image.open(path) as img:
         exif = img.getexif()
+        sub = exif.get_ifd(ExifTags.IFD.Exif)
+        gps = exif.get_ifd(ExifTags.IFD.GPSInfo)
     infos: dict[str, str] = {}
-    sub = exif.get_ifd(ExifTags.IFD.Exif)
     raw_date = sub.get(ExifTags.Base.DateTimeOriginal) or exif.get(ExifTags.Base.DateTime)
     if raw_date:
         try:
@@ -43,7 +45,6 @@ def read_exif(path: Path) -> dict[str, str]:
             pass
     if exif.get(ExifTags.Base.Model):
         infos["camera"] = str(exif[ExifTags.Base.Model]).strip()
-    gps = exif.get_ifd(ExifTags.IFD.GPSInfo)
     if gps.get(2) and gps.get(4):
         lat = gps_to_decimal(gps[2], gps.get(1, "N"))
         lon = gps_to_decimal(gps[4], gps.get(3, "E"))
