@@ -1,0 +1,20 @@
+From jury@example.com Mon Oct 20 10:00:00 2025
+From: Jury Epitech <jury@example.com>
+To: moi@example.com
+Subject: =?utf-8?q?Convocation_soutenance?=
+Date: Mon, 20 Oct 2025 10:00:00 +0200
+Content-Type: text/plain; charset=utf-8
+
+Bonjour,
+
+Ta soutenance est fixée au 12 novembre à 14h, salle 3.
+
+> ancien message cité
+
+From shop@example.com Tue Oct 21 08:00:00 2025
+From: Boutique <shop@example.com>
+Subject: Votre commande
+Date: Tue, 21 Oct 2025 08:00:00 +0200
+Content-Type: text/html; charset=utf-8
+
+<html><style>p{color:red}</style><p>Commande <b>expédiée</b> &amp; livrée bientôt</p></html>
